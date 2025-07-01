@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding-inline: 20px; 
+    background: url(/assets/img/arkaplan.jpg);
+    background-size: auto;
+}
+.box {
+    width: auto;
+    margin:  auto;
+    border-radius: 10px;
+    background: rgba(97, 97, 97, 0.651);
+    padding:20px;
+    text-align: center;
+    color: white;
+}
+.box img {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.box img:hover{
+    transform: scale(0.9);
+}
+.box h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+.box h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.box li{
+    display: inline-block;
+    margin-inline: 20px;
+    font-size: 35px;
+}
+.box a{
+    color: rgb(192, 192, 192);
+}
+.box a:hover{
+    transform: scale(1.2);
+    color: rgb(98, 144, 150);
+}
