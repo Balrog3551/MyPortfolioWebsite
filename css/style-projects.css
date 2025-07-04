@@ -17,3 +17,8 @@
 .grid-container .card p{
     color: white;
 }
+h1{
+    text-align: center; 
+    color: white; 
+    font-family: 'Times New Roman', Times, serif;
+}
