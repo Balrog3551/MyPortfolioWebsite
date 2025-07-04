@@ -38,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['gonder'])) {
         $mail->send();
         $mesaj_goster = '<div class="success-message">Mesajınız başarıyla gönderildi. Teşekkürler!</div>';
     } catch (Exception $e) {
-        $mesaj_goster = '<div class="error-message">Mesaj gönderilemedi. Hata: ' . $mail->ErrorInfo . '</div>';
+        error_log("PHPMailer Hatası: " . $mail->ErrorInfo);
+        $mesaj_goster = '<div class="error-message">Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.</div>';
     }
 }
 ?>
@@ -46,20 +47,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['gonder'])) {
 <html lang="tr">
 <?php include 'includes/head.php'; ?>
 <link rel="stylesheet" href="css/style-contact.css">
-<style>
-    .success-message { padding: 15px; margin-bottom: 20px; border-radius: 4px; color: #155724; background-color: #d4edda; border: 1px solid #c3e6cb; text-align: center; }
-    .error-message { padding: 15px; margin-bottom: 20px; border-radius: 4px; color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; text-align: center; }
-</style>
 <body>
     <?php include 'includes/navbar.php'; ?>
 
     <section class="contact">
         <div class="content"><h2>Bana Ulaş</h2><p>Aşağıdaki formu doldurarak veya iletişim bilgileri aracılığıyla bana ulaşabilirsiniz.</p></div>
         <div class="container">
-            <div class="contactInfo"></div>
+            <div class="contactInfo">
+                <div class="box-contact">
+                    <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="text"><h3>Adres</h3><p>Niğde, Türkiye</p></div>
+                </div>
+                <div class="box-contact">
+                    <div class="icon"><i class="fas fa-envelope"></i></div>
+                    <div class="text"><h3>E-posta</h3><p>muhammetcevik5551@gmail.com</p></div>
+                </div>
+                <div class="box-contact">
+                    <div class="icon"><i class="fas fa-phone"></i></div>
+                    <div class="text"><h3>Telefon</h3><p>+90 535 472 58 51</p></div>
+                </div>
+            </div>
             <div class="contactForm">
                 <?php echo $mesaj_goster; ?>
                 <form action="contact.php" method="POST">
+                    <!-- Güvenlik için gelecekte buraya bir CSRF token eklenmesi önerilir. -->
                     <h2>Mail Gönder</h2>
                     <div class="inputBox"><input type="text" name="isimSoyad" required="required"><span>İsim Soyad</span></div>
                     <div class="inputBox"><input type="email" name="emailAdresi" required="required"><span>Mail Adresi</span></div>
