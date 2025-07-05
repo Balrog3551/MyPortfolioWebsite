@@ -2,28 +2,20 @@
 
 $projects = [
     [
-        'title' => 'Dinamik E-Ticaret Platformu',
-        'description' => 'PHP ve MySQL kullanarak geliştirdiğim, kullanıcı dostu arayüze sahip, ürün yönetimi, sepet ve ödeme sistemleri içeren kapsamlı bir e-ticaret sitesi.'
+        'title' => 'Görüntü İşleme Web Sitesi',
+        'description' => 'Python ve Flask kütüphanesiyle geliştirilmiş, kullanıcıların resim yükleyip temel filtreleme işlemleri yapabildiği bir web uygulaması.'
     ],
     [
-        'title' => 'Kurumsal Firma Web Sitesi',
-        'description' => 'Modern tasarım trendlerine uygun, firmanın hizmetlerini ve portfolyosunu sergilediği, iletişim formu entegrasyonu yapılmış, tamamen duyarlı (responsive) bir web sitesi.'
+        'title' => 'Bitirme Projesi: Ben Analizi Uygulaması',
+        'description' => 'Flutter ile geliştirilen, çekilen ben fotoğraflarını Python makine öğrenimi modeliyle analiz ederek erken teşhise yardımcı olan bir mobil uygulama.'
     ],
     [
-        'title' => 'Kişisel Blog Sistemi',
-        'description' => 'Yazarların kolayca içerik ekleyip düzenleyebileceği, kategori ve etiketleme özelliklerine sahip, SEO dostu bir blog yönetim sistemi.'
+        'title' => 'Getir Mobil Uygulama Klonu',
+        'description' => 'Popüler "Getir" uygulamasının arayüzünün ve temel işlevlerinin Flutter ve Firebase kullanılarak yeniden oluşturulduğu bir mobil uygulama projesi.'
     ],
     [
-        'title' => 'Restoran Sipariş Uygulaması',
-        'description' => 'Müşterilerin menüyü inceleyip online sipariş verebildiği, yönetici paneli üzerinden sipariş takibi ve menü yönetimi yapılabilen bir web uygulaması.'
-    ],
-    [
-        'title' => 'Etkinlik Takvimi Portalı',
-        'description' => 'Kullanıcıların yaklaşan etkinlikleri listeleyebildiği, tarihe göre filtreleme yapabildiği ve etkinlik detaylarını görüntüleyebildiği interaktif bir portal.'
-    ],
-    [
-        'title' => 'Portfolyo Web Sitesi Şablonu',
-        'description' => 'Tıpkı bu site gibi, geliştiricilerin ve tasarımcıların projelerini sergileyebileceği, temiz ve minimalist bir tasarıma sahip, özelleştirilebilir portfolyo şablonu.'
+        'title' => 'Kişisel Portfolyo Web Sitesi',
+        'description' => 'Projelerimi ve yeteneklerimi sergilemek amacıyla HTML, CSS ve PHP dillerini kullanarak geliştirdiğim kişisel portfolyo sitem.'
     ]
 ];
 
