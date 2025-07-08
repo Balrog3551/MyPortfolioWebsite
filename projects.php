@@ -1,17 +1,20 @@
+<?php require_once 'includes/language.php'; ?>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="<?php echo $_SESSION['lang']; ?>">
 <?php include 'includes/head.php'; ?>
 <link rel="stylesheet" href="css/style-projects.css">
 <body>
     <?php include 'includes/navbar.php'; ?>
-    <h1>Projelerim</h1>
+    
+    <h1><?php echo $lang['my_projects']; ?></h1>
+
     <div class="grid-container">
         <?php
         require 'includes/project_card.php';
-        foreach ($projects as $project) {
-            echo generateProjectCard($project['title'], $project['description']);
+        foreach ($project_definitions as $project) {
+            echo generateProjectCard($project['title_key'], $project['description_key'], $lang);
         }
         ?>
     </div>
 </body>
-</html> 
+</html>
