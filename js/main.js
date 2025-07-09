@@ -1,27 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarContainer = document.querySelector('.navbar-container');
+
+    if (navbarToggler && navbarContainer) {
+        navbarToggler.addEventListener('click', () => {
+            navbarContainer.classList.toggle('active');
+        });
+    }
+
+    const themeCheckbox = document.getElementById('theme-checkbox');
     const body = document.body;
 
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
         body.classList.add(currentTheme);
         if (currentTheme === 'dark-theme') {
-            themeToggle.innerHTML = '☀️';
-        } else {
-            themeToggle.innerHTML = '🌙';
+            themeCheckbox.checked = true;
         }
     }
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        let theme = 'light-theme';
-        if (body.classList.contains('dark-theme')) {
-            theme = 'dark-theme';
-            themeToggle.innerHTML = '☀️';
+    themeCheckbox.addEventListener('change', () => {
+        if (themeCheckbox.checked) {
+            body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark-theme');
         } else {
-            themeToggle.innerHTML = '🌙';
+            body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light-theme');
         }
-        localStorage.setItem('theme', theme);
     });
 });
 
@@ -32,9 +37,6 @@ if (langToggle) {
         const currentButtonText = langToggle.innerText.trim();
         const newLang = (currentButtonText === 'EN') ? 'en' : 'tr';
 
-
-        console.log("Sunucuya gönderilecek yeni dil:", newLang);
-
         fetch('/api/set_language.php', {
             method: 'POST',
             headers: {
@@ -44,7 +46,6 @@ if (langToggle) {
         })
         .then(response => {
             if (!response.ok) {
-                console.error("Ağ yanıtı sorunlu. Durum:", response.status);
                 return response.json().then(err => Promise.reject(err));
             }
             return response.json();
