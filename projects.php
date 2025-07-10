@@ -6,7 +6,7 @@
 <body>
     <?php include 'includes/navbar.php'; ?>
     
-    <h1><?php echo $lang['my_projects']; ?></h1>
+    <h1 data-lang-key="my_projects"><?php echo $lang['my_projects']; ?></h1>
 
     <div class="grid-container">
         <?php

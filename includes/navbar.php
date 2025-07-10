@@ -5,8 +5,8 @@
 
   <div class="navbar-container">
     <ul class="navbar-ip">
-      <li><a href="index.php">Ana Sayfa</a></li>
-      <li><a href="projects.php">Projelerim</a></li>
+      <li><a href="index.php" data-lang-key="home"><?php echo $lang['home']; ?></a></li>
+      <li><a href="projects.php" data-lang-key="projects"><?php echo $lang['projects']; ?></a></li>
     </ul>
     
     <div class="navbar-right">
@@ -26,7 +26,7 @@
         </div>
         
         <ul class="navbar-contact">
-          <li><a href="contact.php">İletişim</a></li>
+          <li><a href="contact.php" data-lang-key="contact"><?php echo $lang['contact']; ?></a></li>
         </ul>
     </div>
   </div>

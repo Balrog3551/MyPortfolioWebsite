@@ -11,6 +11,7 @@
     text-align: center;
 }
 .contact .content h2 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 36px;
     font-weight: bold;
     color: var(--text-color);
@@ -57,6 +58,7 @@
    font-weight: bold;
 }
 .contact .container .contactInfo .box-contact .text h3{
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: var(--primary-accent-color);
 }
@@ -68,6 +70,7 @@
     border-radius: 10px;
 }
 .contact .container .contactForm h2{
+    font-family: 'Montserrat', sans-serif;
     font-size: 30px;
     color: var(--text-color);
     font-weight: bold;
@@ -90,6 +93,7 @@
     resize: none;
     background: transparent; 
     color: var(--text-color); 
+    font-family: 'Roboto', sans-serif;
 }
 .contact .container .contactForm .inputBox span{
     position: absolute;
@@ -119,6 +123,7 @@
     cursor: pointer;
     padding: 10px;
     font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
 }
 .contact .container .contactForm .inputBox input[type="submit"]:hover {
     background: var(--secondary-accent-color);

@@ -25,7 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['gonder'])) {
             $mail->Port       = 465;
             $mail->CharSet    = 'UTF-8';
 
-            $gelen_mail = htmlspecialchars(trim($_POST['emailAdresi']));
+            $gelen_mail = filter_input(INPUT_POST, 'emailAdresi', FILTER_VALIDATE_EMAIL);
+            if (!$gelen_mail) {
+            } else {
+                $gelen_mail = htmlspecialchars(trim($gelen_mail));
+            }
             $gelen_ad = htmlspecialchars(trim($_POST['isimSoyad']));
 
             $mail->setFrom(GMAIL_USER, 'Portfolyo Siten');
@@ -59,25 +63,28 @@ if (empty($_SESSION['csrf_token'])) {
     <?php include 'includes/navbar.php'; ?>
 
     <section class="contact">
-        <div class="content"><h2><?php echo $lang['contact_me']; ?></h2><p><?php echo $lang['contact_intro']; ?></p></div>
+        <div class="content">
+            <h2 data-lang-key="contact_me"><?php echo $lang['contact_me']; ?></h2>
+            <p data-lang-key="contact_intro"><?php echo $lang['contact_intro']; ?></p>
+        </div>
         <div class="container">
             <div class="contactInfo">
                 <?php
                 require 'includes/contact_info.php';
-                echo generateContactBox('fa-map-marker-alt', $lang['address_title'], $lang['address_text']);
-                echo generateContactBox('fa-envelope', $lang['email_title'], '<a href="mailto:muhammetcevik5551@gmail.com">muhammetcevik5551@gmail.com</a>');
-                echo generateContactBox('fa-phone', $lang['phone_title'], '<a href="tel:+905354725851">+90 535 472 58 51</a>');
+                echo generateContactBox('fa-map-marker-alt', 'address_title', $lang['address_title'], $lang['address_text'], 'address_text');
+                echo generateContactBox('fa-envelope', 'email_title', $lang['email_title'], '<a href="mailto:muhammetcevik5551@gmail.com">muhammetcevik5551@gmail.com</a>');
+                echo generateContactBox('fa-phone', 'phone_title', $lang['phone_title'], '<a href="tel:+905354725851">+90 535 472 58 51</a>');
                 ?>
             </div>
             <div class="contactForm">
                 <?php echo $mesaj_goster; ?>
                 <form action="contact.php" method="POST">
-                    <h2><?php echo $lang['send_mail']; ?></h2>
+                    <h2 data-lang-key="send_mail"><?php echo $lang['send_mail']; ?></h2>
                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
-                    <div class="inputBox"><input type="text" name="isimSoyad" required="required"><span><?php echo $lang['full_name']; ?></span></div>
-                    <div class="inputBox"><input type="email" name="emailAdresi" required="required"><span><?php echo $lang['email_address']; ?></span></div>
-                    <div class="inputBox"><textarea name="mesaj" required="required"></textarea><span><?php echo $lang['your_message']; ?></span></div>
-                    <div class="inputBox"><input type="submit" name="gonder" value="<?php echo $lang['send']; ?>"></div>
+                    <div class="inputBox"><input type="text" name="isimSoyad" required="required"><span data-lang-key="full_name"><?php echo $lang['full_name']; ?></span></div>
+                    <div class="inputBox"><input type="email" name="emailAdresi" required="required"><span data-lang-key="email_address"><?php echo $lang['email_address']; ?></span></div>
+                    <div class="inputBox"><textarea name="mesaj" required="required"></textarea><span data-lang-key="your_message"><?php echo $lang['your_message']; ?></span></div>
+                    <div class="inputBox"><input type="submit" name="gonder" data-lang-key="send" value="<?php echo $lang['send']; ?>"></div>
                 </form>
             </div>
         </div>

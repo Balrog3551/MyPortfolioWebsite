@@ -9,8 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($data['lang']) && in_array($data['lang'], ['tr', 'en'])) {
         $_SESSION['lang'] = $data['lang'];
         
+        $lang_file = __DIR__ . '/../lang/' . $_SESSION['lang'] . '.php';
+        if (file_exists($lang_file)) {
+            require $lang_file;
+        } else {
+            require __DIR__ . '/../lang/en.php'; 
+        }
+
         header('Content-Type: application/json');
-        echo json_encode(['status' => 'success', 'lang' => $_SESSION['lang']]);
+        echo json_encode(['status' => 'success', 'lang' => $_SESSION['lang'], 'translations' => $lang]);
         exit;
     }
 }

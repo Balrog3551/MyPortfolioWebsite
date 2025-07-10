@@ -24,8 +24,8 @@ function generateProjectCard($title_key, $description_key, $lang_array) {
 
     return "
     <div class=\"card\">
-        <h2>{$safe_title}</h2>
-        <p>{$safe_description}</p>
+        <h2 data-lang-key=\"{$title_key}\">{$safe_title}</h2>
+        <p data-lang-key=\"{$description_key}\">{$safe_description}</p>
     </div>";
 }
 ?>

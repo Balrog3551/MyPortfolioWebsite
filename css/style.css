@@ -36,6 +36,7 @@ body.dark-theme {
 body {
     margin: 0;
     padding-inline: 20px; 
+    font-family: 'Roboto', sans-serif;
     background-image: url(../assets/img/light-background.png);
     background-size: cover;
     background-position: center;
@@ -65,13 +66,13 @@ body {
     transform: scale(1.1);
 }
 .box h1{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     letter-spacing: 2px;
     color: var(--primary-accent-color);
 }
 .box h5{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     letter-spacing: 2px;
 }

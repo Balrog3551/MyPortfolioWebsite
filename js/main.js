@@ -52,7 +52,9 @@ if (langToggle) {
         })
         .then(data => {
             if (data.status === 'success') {
-                location.reload();
+                updatePageTexts(data.translations);
+                langToggle.innerText = (data.lang === 'tr') ? 'EN' : 'TR';
+                document.documentElement.lang = data.lang;
             } else {
                 console.error('Dil değiştirilemedi:', data.message);
             }
@@ -60,5 +62,26 @@ if (langToggle) {
         .catch(error => {
             console.error('Fetch Hatası:', error);
         });
+    });
+}
+function updatePageTexts(translations) {
+    // Sayfa başlığını güncelle
+    document.title = translations['site_title'];
+
+    // 'data-lang-key' attribute'una sahip tüm elementleri bul
+    const elements = document.querySelectorAll('[data-lang-key]');
+    
+    elements.forEach(element => {
+        const key = element.getAttribute('data-lang-key');
+        if (translations[key]) {
+            // Eğer element bir input ise, value'sunu değiştir
+            if (element.nodeName === 'INPUT' && element.type === 'submit') {
+                element.value = translations[key];
+            } 
+            // Diğer tüm elementler için içindeki metni değiştir
+            else {
+                element.innerText = translations[key];
+            }
+        }
     });
 }
